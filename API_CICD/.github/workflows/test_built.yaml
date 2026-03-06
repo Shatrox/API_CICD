@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Clone du projet dans le runner 
         uses: actions/checkout@v6
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
       - name: Run Test
         run: npm run test
       
