@@ -23,7 +23,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Send Email
-      if: failure()
+      if: success()
       uses: JaSiLez/smtp-notifier@main
       with:
         server_address: ${{ vars.SMTP_SERVER }}
