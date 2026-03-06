@@ -23,7 +23,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Send Email
-      if: failure()
+      if: success()
       uses: ksatriow/action-mailer@v1.0.0
       with:
          smtp-server: ${{vars.SMTP_SERVER}}
