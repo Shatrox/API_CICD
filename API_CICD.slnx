@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AdditionTest/AdditionTest.csproj" />
+  <Project Path="API_CICD/API_CICD.csproj" />
+</Solution>

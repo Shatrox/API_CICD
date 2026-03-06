@@ -1,0 +1,13 @@
+name: Test and build
+
+on: 
+  workflow_dispatch:
+  
+
+jobs:
+  test_and_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Test
+        run: npm run test
+      
