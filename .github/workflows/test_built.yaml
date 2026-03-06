@@ -23,15 +23,16 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Send Email
-      if: success()
-      uses: ksatriow/action-mailer@v1.0.0
+      if: failure()
+      uses: JaSiLez/smtp-notifier@main
       with:
-         smtp-server: ${{vars.SMTP_SERVER}}
-         smtp-port: ${{vars.SMTP_PORT}}
-         from-email: ${{ secrets.FROM_EMAIL }}
-         to-email: digitalcity@yopmail.com
-         username: ${{ secrets.SMTP_USERNAME }}
-         password: ${{ secrets.SMTP_PASSWORD }}
-         subject: "🚀 Deployment sucessfull!"
-         body: "<h1>Your deployment was successfully!<h1>"
+        server_address: ${{ vars.SMTP_SERVER }}
+        server_port: ${{ vars.SMTP_PORT }}
+        secure: true
+        from: ${{ secrets.FROM_EMAIL }}
+        to: digitalcity@yopmail.com
+        username: ${{ secrets.SMTP_USERNAME }}
+        password: ${{ secrets.SMTP_PASSWORD }}
+        subject: "🚀 Deployment fail!"
+        html_body: "<h1>Et merde ca à foiré... ! 💩</h1>"
       
