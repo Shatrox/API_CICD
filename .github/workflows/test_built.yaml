@@ -22,4 +22,16 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Send Email
+      if: sucess()
+      uses: ksatriow/action-mailer@v1.0.0
+      with:
+         smtp-server: ${{vars.SMTP_SERVER}}
+         smtp-port: ${{vars.SMTP_PORT}}
+         from-email: ${{ secrets.FROM_EMAIL }}
+         to-email: digitalcity@yopmail.com
+         username: ${{ secrets.SMTP_USERNAME }}
+         password: ${{ secrets.SMTP_PASSWORD }}
+         subject: "🚀 Deployment sucessfull!"
+         body: "<h1>Your deployment was successfully!<h1>"
       
