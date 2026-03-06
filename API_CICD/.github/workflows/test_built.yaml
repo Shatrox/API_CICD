@@ -8,6 +8,8 @@ jobs:
   test_and_build:
     runs-on: ubuntu-latest
     steps:
+      - name: Clone du projet dans le runner 
+        uses: actions/checkout@v6
       - name: Run Test
         run: npm run test
       
